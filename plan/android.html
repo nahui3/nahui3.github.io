@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+    <span id="light" tabindex="-1" aria-hidden="true" class="theme-anchor"></span>
+    <span id="dark" tabindex="-1" aria-hidden="true" class="theme-anchor"></span>
+
     <nav class="navbar navbar-expand-md navbar-light navbar-custom py-3">
         <div class="container">
             <a class="navbar-brand" href="../index.html">NAHUI3</a>
-            <div class="navbar-nav flex-wrap gap-1">
+            <div class="navbar-nav flex-wrap gap-1 align-items-center">
                 <a class="nav-link" href="../index.html">Главная</a>
                 <a class="nav-link" href="bdui.html">О плане BDUI</a>
                 <a class="nav-link" href="admin.html">План: Admin</a>
@@ -20,6 +23,10 @@
                 <a class="nav-link active" href="android.html">План: Android</a>
                 <a class="nav-link" href="web.html">План: Web</a>
                 <a class="nav-link" href="demo.html">План: Demo</a>
+                <span class="theme-toggle">
+                    <a href="android.html#light">Светлая</a>
+                    <a href="android.html#dark">Тёмная</a>
+                </span>
             </div>
         </div>
     </nav>
@@ -28,24 +35,34 @@
         <h1 class="section-title">План: Android</h1>
         <p class="lead mb-4">Kotlin Compose библиотека <strong>nahui3</strong>: загрузка фичи, передача версии, применение дельты, рендер по манифесту и файлам.</p>
 
-        <div class="plan-block">
-            <h2>Контекст</h2>
-            <ul>
-                <li>Фича описывается манифестом (дерево папок и файлов с id, name, hash). Узел: <strong>id</strong>, <strong>name</strong>, <strong>hash</strong>. Иерархия задаётся манифестом.</li>
-                <li>Клиент передаёт версию и id фичи; сервер отдаёт <strong>дельту вместе с опубликованным манифестом</strong> (либо «изменений не было»). Дельта кешируется только на сервере.</li>
-            </ul>
-        </div>
+        <section class="plan-section">
+            <div class="plan-section-header">
+                <div class="plan-section-icon" aria-hidden="true">📋</div>
+                <h2>Контекст</h2>
+            </div>
+            <div class="plan-bullet-cards">
+                <div class="plan-bullet-card">
+                    Фича описывается манифестом (дерево папок и файлов с id, name, hash). Узел: <strong>id</strong>, <strong>name</strong>, <strong>hash</strong>. Иерархия задаётся манифестом.
+                </div>
+                <div class="plan-bullet-card">
+                    Клиент передаёт версию и id фичи; сервер отдаёт <strong>дельту вместе с опубликованным манифестом</strong> (либо «изменений не было»). Дельта кешируется только на сервере.
+                </div>
+            </div>
+        </section>
 
-        <div class="plan-block">
-            <h2>Задачи</h2>
-            <ol>
-                <li><strong>Модели данных</strong> — data-классы или сериализация (kotlinx.serialization) для манифеста и узла: id (UUID), name, hash; дерево папок и файлов. Модель дельты от сервера.</li>
-                <li><strong>Сеть и кеш</strong> — HTTP-клиент: запрос фичи (платформа, id фичи, версия); разбор ответа: дельта + опубликованный манифест; кеш манифеста и состояния фичи.</li>
-                <li><strong>Применение дельты</strong> — применение дельты к предыдущему состоянию, кеширование манифеста; обновление локального дерева (add/update/remove по id или пути); обновление UI.</li>
-                <li><strong>Рендер по манифесту и файлам</strong> — построение Compose-UI по манифесту и содержимому файлов фичи.</li>
-                <li><strong>Документация и тесты</strong> — обновить docs/USAGE.md; пример в demo; тесты парсинга манифеста и применения дельты.</li>
-            </ol>
-        </div>
+        <section class="plan-section">
+            <div class="plan-section-header">
+                <div class="plan-section-icon" aria-hidden="true">✓</div>
+                <h2>Задачи</h2>
+            </div>
+            <div class="plan-bullet-cards">
+                <div class="plan-bullet-card"><span class="bullet-num">1</span> <strong>Модели данных</strong> — data-классы или сериализация (kotlinx.serialization) для манифеста и узла: id (UUID), name, hash; дерево папок и файлов. Модель дельты от сервера.</div>
+                <div class="plan-bullet-card"><span class="bullet-num">2</span> <strong>Сеть и кеш</strong> — HTTP-клиент: запрос фичи (платформа, id фичи, версия); разбор ответа: дельта + опубликованный манифест; кеш манифеста и состояния фичи.</div>
+                <div class="plan-bullet-card"><span class="bullet-num">3</span> <strong>Применение дельты</strong> — применение дельты к предыдущему состоянию, кеширование манифеста; обновление локального дерева (add/update/remove по id или пути); обновление UI.</div>
+                <div class="plan-bullet-card"><span class="bullet-num">4</span> <strong>Рендер по манифесту и файлам</strong> — построение Compose-UI по манифесту и содержимому файлов фичи.</div>
+                <div class="plan-bullet-card"><span class="bullet-num">5</span> <strong>Документация и тесты</strong> — обновить docs/USAGE.md; пример в demo; тесты парсинга манифеста и применения дельты.</div>
+            </div>
+        </section>
 
         <div class="plan-result">
             <strong>Результат:</strong> Android demo подключает библиотеку nahui3, передаёт версию и id фичи, получает дельту и опубликованный манифест, применяет дельту, кеширует манифест и рендерит.
