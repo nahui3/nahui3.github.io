@@ -3,192 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAHUI3 - Документация проекта</title>
+    <title>NAHUI3 — Документация проекта</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
+    <nav class="navbar navbar-expand-md navbar-light navbar-custom py-3">
         <div class="container">
-            <h1 class="logo">NAHUI3</h1>
-            <p class="tagline">Система управления файлами интерфейсов</p>
+            <a class="navbar-brand" href="index.html">NAHUI3</a>
+            <div class="navbar-nav flex-wrap gap-1">
+                <a class="nav-link active" href="index.html">Главная</a>
+                <a class="nav-link" href="plan/bdui.html">О плане BDUI</a>
+                <a class="nav-link" href="plan/admin.html">План: Admin</a>
+                <a class="nav-link" href="plan/backend.html">План: Backend</a>
+                <a class="nav-link" href="plan/ios.html">План: iOS</a>
+                <a class="nav-link" href="plan/android.html">План: Android</a>
+                <a class="nav-link" href="plan/web.html">План: Web</a>
+                <a class="nav-link" href="plan/demo.html">План: Demo</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="main">
-        <div class="container">
-            <section class="intro">
-                <h2>О проекте</h2>
-                <p>NAHUI3 — это система для управления и распространения файлов интерфейсов для платформ Android, iOS и Web. Проект состоит из библиотек для каждой платформы, backend API и административной панели.</p>
-            </section>
+    <main class="container py-5">
+        <section class="text-center mb-5">
+            <h1 class="section-title display-6">О проекте</h1>
+            <p class="lead mx-auto" style="max-width: 700px;">NAHUI3 — система управления и распространения интерфейсов (BDUI) для платформ Android, iOS и Web. Backend API, админ-панель, библиотеки nahui3 и демо-приложения.</p>
+        </section>
 
-            <section class="repositories">
-                <h2>Библиотеки и компоненты</h2>
-                <div class="repo-grid">
-                    <!-- Backend -->
-                    <div class="repo-card">
-                        <div class="repo-icon backend-icon">⚙️</div>
-                        <h3 class="repo-title">Backend API</h3>
-                        <p class="repo-description">REST API сервис на Go для предоставления файлов интерфейсов клиентским приложениям</p>
-                        <div class="repo-tags">
-                            <span class="tag">Go</span>
-                            <span class="tag">REST API</span>
-                            <span class="tag">Backend</span>
-                        </div>
-                        <div class="repo-links">
-                            <a href="https://github.com/nahui3/backend" target="_blank" class="btn btn-primary">GitHub</a>
-                            <a href="https://github.com/nahui3/backend/blob/main/README.md" target="_blank" class="btn btn-secondary">README</a>
-                        </div>
-                    </div>
-
-                    <!-- Admin -->
-                    <div class="repo-card">
-                        <div class="repo-icon admin-icon">🛠️</div>
-                        <h3 class="repo-title">Admin Panel</h3>
-                        <p class="repo-description">Административная панель на Django для загрузки и управления файлами интерфейсов</p>
-                        <div class="repo-tags">
-                            <span class="tag">Django</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Admin</span>
-                        </div>
-                        <div class="repo-links">
-                            <a href="https://github.com/nahui3/admin" target="_blank" class="btn btn-primary">GitHub</a>
-                            <a href="https://github.com/nahui3/admin/blob/main/README.md" target="_blank" class="btn btn-secondary">README</a>
-                        </div>
-                    </div>
-
-                    <!-- Android -->
-                    <div class="repo-card">
-                        <div class="repo-icon android-icon">🤖</div>
-                        <h3 class="repo-title">Android Library</h3>
-                        <p class="repo-description">Compose-библиотека с компонентом FieldWithText для Android приложений</p>
-                        <div class="repo-tags">
-                            <span class="tag">Kotlin</span>
-                            <span class="tag">Compose</span>
-                            <span class="tag">Android</span>
-                        </div>
-                        <div class="repo-links">
-                            <a href="https://github.com/nahui3/android" target="_blank" class="btn btn-primary">GitHub</a>
-                            <a href="https://github.com/nahui3/android/blob/main/README.md" target="_blank" class="btn btn-secondary">README</a>
-                        </div>
-                    </div>
-
-                    <!-- iOS -->
-                    <div class="repo-card">
-                        <div class="repo-icon ios-icon">🍎</div>
-                        <h3 class="repo-title">iOS Library</h3>
-                        <p class="repo-description">Swift Package с SwiftUI-компонентом SimpleTextFieldView для iOS приложений</p>
-                        <div class="repo-tags">
-                            <span class="tag">Swift</span>
-                            <span class="tag">SwiftUI</span>
-                            <span class="tag">iOS</span>
-                        </div>
-                        <div class="repo-links">
-                            <a href="https://github.com/nahui3/ios" target="_blank" class="btn btn-primary">GitHub</a>
-                            <a href="https://github.com/nahui3/ios/blob/main/README.md" target="_blank" class="btn btn-secondary">README</a>
-                        </div>
-                    </div>
-
-                    <!-- Web -->
-                    <div class="repo-card">
-                        <div class="repo-icon web-icon">🌐</div>
-                        <h3 class="repo-title">Web Library</h3>
-                        <p class="repo-description">React-библиотека с компонентами для веб-приложений</p>
-                        <div class="repo-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Web</span>
-                        </div>
-                        <div class="repo-links">
-                            <a href="https://github.com/nahui3/web" target="_blank" class="btn btn-primary">GitHub</a>
-                            <a href="https://github.com/nahui3/web/blob/main/README.md" target="_blank" class="btn btn-secondary">README</a>
-                        </div>
-                    </div>
-
-                    <!-- Demo -->
-                    <div class="repo-card">
-                        <div class="repo-icon demo-icon">🎨</div>
-                        <h3 class="repo-title">Demo Projects</h3>
-                        <p class="repo-description">Демонстрационные проекты для всех платформ с примерами использования библиотек</p>
-                        <div class="repo-tags">
-                            <span class="tag">Examples</span>
-                            <span class="tag">Demo</span>
-                            <span class="tag">Tutorial</span>
-                        </div>
-                        <div class="repo-links">
-                            <a href="https://github.com/nahui3/demo" target="_blank" class="btn btn-primary">GitHub</a>
-                            <a href="https://github.com/nahui3/demo/blob/main/README.md" target="_blank" class="btn btn-secondary">README</a>
+        <section class="mb-5">
+            <h2 class="section-title text-center mb-4">Репозитории и планы</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 repo-card">
+                        <div class="card-body">
+                            <div class="mb-2">⚙️</div>
+                            <h3 class="card-title h5">Backend API</h3>
+                            <p class="card-text small">REST API на Go, CI/CD-воркер, манифесты и дельты.</p>
+                            <span class="badge bg-primary me-1">Go</span>
+                            <span class="badge bg-secondary">REST</span>
+                            <div class="mt-3 d-flex gap-2 flex-wrap">
+                                <a href="https://github.com/nahui3/backend" target="_blank" class="btn btn-primary btn-sm">GitHub</a>
+                                <a href="plan/backend.html" class="btn btn-outline-primary btn-sm">План</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 repo-card">
+                        <div class="card-body">
+                            <div class="mb-2">🛠️</div>
+                            <h3 class="card-title h5">Admin Panel</h3>
+                            <p class="card-text small">Django: настройки воркера, версии, публикация.</p>
+                            <span class="badge bg-primary me-1">Django</span>
+                            <span class="badge bg-secondary">Python</span>
+                            <div class="mt-3 d-flex gap-2 flex-wrap">
+                                <a href="https://github.com/nahui3/admin" target="_blank" class="btn btn-primary btn-sm">GitHub</a>
+                                <a href="plan/admin.html" class="btn btn-outline-primary btn-sm">План</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 repo-card">
+                        <div class="card-body">
+                            <div class="mb-2">🤖</div>
+                            <h3 class="card-title h5">Android</h3>
+                            <p class="card-text small">Kotlin Compose библиотека nahui3.</p>
+                            <span class="badge bg-primary me-1">Kotlin</span>
+                            <span class="badge bg-secondary">Compose</span>
+                            <div class="mt-3 d-flex gap-2 flex-wrap">
+                                <a href="https://github.com/nahui3/android" target="_blank" class="btn btn-primary btn-sm">GitHub</a>
+                                <a href="plan/android.html" class="btn btn-outline-primary btn-sm">План</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 repo-card">
+                        <div class="card-body">
+                            <div class="mb-2">🍎</div>
+                            <h3 class="card-title h5">iOS</h3>
+                            <p class="card-text small">SwiftUI SPM-пакет nahui3.</p>
+                            <span class="badge bg-primary me-1">Swift</span>
+                            <span class="badge bg-secondary">SwiftUI</span>
+                            <div class="mt-3 d-flex gap-2 flex-wrap">
+                                <a href="https://github.com/nahui3/ios" target="_blank" class="btn btn-primary btn-sm">GitHub</a>
+                                <a href="plan/ios.html" class="btn btn-outline-primary btn-sm">План</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 repo-card">
+                        <div class="card-body">
+                            <div class="mb-2">🌐</div>
+                            <h3 class="card-title h5">Web</h3>
+                            <p class="card-text small">React-компонент nahui3.</p>
+                            <span class="badge bg-primary me-1">React</span>
+                            <span class="badge bg-secondary">TypeScript</span>
+                            <div class="mt-3 d-flex gap-2 flex-wrap">
+                                <a href="https://github.com/nahui3/web" target="_blank" class="btn btn-primary btn-sm">GitHub</a>
+                                <a href="plan/web.html" class="btn btn-outline-primary btn-sm">План</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 repo-card">
+                        <div class="card-body">
+                            <div class="mb-2">🎨</div>
+                            <h3 class="card-title h5">Demo</h3>
+                            <p class="card-text small">Демо-приложения для iOS, Android и Web.</p>
+                            <span class="badge bg-primary me-1">Demo</span>
+                            <span class="badge bg-secondary">Examples</span>
+                            <div class="mt-3 d-flex gap-2 flex-wrap">
+                                <a href="https://github.com/nahui3/demo" target="_blank" class="btn btn-primary btn-sm">GitHub</a>
+                                <a href="plan/demo.html" class="btn btn-outline-primary btn-sm">План</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section class="architecture">
-                <h2>Архитектура проекта</h2>
-                <div class="architecture-diagram">
-                    <div class="arch-item">
+        <section class="mb-5">
+            <h2 class="section-title text-center mb-4">Архитектура</h2>
+            <div class="row align-items-center justify-content-center g-2 flex-wrap">
+                <div class="col-auto">
+                    <div class="arch-step">
                         <div class="arch-icon">👤</div>
-                        <h4>Администратор</h4>
-                        <p>Загружает файлы через Admin Panel</p>
+                        <strong>Администратор</strong>
+                        <p class="small text-muted mb-0">Настройки, версии</p>
                     </div>
-                    <div class="arch-arrow">→</div>
-                    <div class="arch-item">
+                </div>
+                <div class="col-auto arch-arrow">→</div>
+                <div class="col-auto">
+                    <div class="arch-step">
                         <div class="arch-icon">🛠️</div>
-                        <h4>Admin Panel</h4>
-                        <p>Django админ-панель</p>
+                        <strong>Admin</strong>
+                        <p class="small text-muted mb-0">Django</p>
                     </div>
-                    <div class="arch-arrow">→</div>
-                    <div class="arch-item">
+                </div>
+                <div class="col-auto arch-arrow">→</div>
+                <div class="col-auto">
+                    <div class="arch-step">
                         <div class="arch-icon">📁</div>
-                        <h4>Файлы</h4>
-                        <p>Хранилище файлов</p>
+                        <strong>Хранилище</strong>
+                        <p class="small text-muted mb-0">.git + files</p>
                     </div>
-                    <div class="arch-arrow">→</div>
-                    <div class="arch-item">
+                </div>
+                <div class="col-auto arch-arrow">→</div>
+                <div class="col-auto">
+                    <div class="arch-step">
                         <div class="arch-icon">⚙️</div>
-                        <h4>Backend API</h4>
-                        <p>Go REST API</p>
+                        <strong>Backend</strong>
+                        <p class="small text-muted mb-0">Go, воркер</p>
                     </div>
-                    <div class="arch-arrow">→</div>
-                    <div class="arch-item">
+                </div>
+                <div class="col-auto arch-arrow">→</div>
+                <div class="col-auto">
+                    <div class="arch-step">
                         <div class="arch-icon">📱</div>
-                        <h4>Клиенты</h4>
-                        <p>Android, iOS, Web</p>
+                        <strong>Клиенты</strong>
+                        <p class="small text-muted mb-0">iOS, Android, Web</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="quick-start">
-                <h2>Быстрый старт</h2>
-                <div class="quick-start-content">
-                    <div class="quick-start-step">
-                        <div class="step-number">1</div>
-                        <h3>Клонируйте репозиторий</h3>
-                        <code>git clone https://github.com/nahui3/backend.git</code>
-                    </div>
-                    <div class="quick-start-step">
-                        <div class="step-number">2</div>
-                        <h3>Запустите через Docker Compose</h3>
-                        <code>docker-compose up -d</code>
-                    </div>
-                    <div class="quick-start-step">
-                        <div class="step-number">3</div>
-                        <h3>Начните использовать библиотеки</h3>
-                        <p>Подключите нужную библиотеку для вашей платформы</p>
+        <section class="mb-5">
+            <h2 class="section-title text-center mb-4">Быстрый старт</h2>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <span class="badge bg-primary rounded-circle p-2 mb-2">1</span>
+                            <h3 class="card-title h6">Клонируйте backend</h3>
+                            <code class="d-block small text-start p-2 bg-light rounded">git clone https://github.com/nahui3/backend.git</code>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <span class="badge bg-primary rounded-circle p-2 mb-2">2</span>
+                            <h3 class="card-title h6">Запустите Docker Compose</h3>
+                            <code class="d-block small text-start p-2 bg-light rounded">docker compose up -d</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <span class="badge bg-primary rounded-circle p-2 mb-2">3</span>
+                            <h3 class="card-title h6">Подключите библиотеку</h3>
+                            <p class="card-text small mb-0">Выберите nahui3 для iOS, Android или Web и откройте соответствующий план.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 NAHUI3. Все права защищены.</p>
-            <p>
-                <a href="https://github.com/orgs/nahui3" target="_blank">GitHub Organization</a>
-            </p>
+    <footer class="footer-custom py-4">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2026 NAHUI3</p>
+            <p class="mb-0"><a href="https://github.com/orgs/nahui3" target="_blank">GitHub Organization</a></p>
         </div>
     </footer>
 </body>

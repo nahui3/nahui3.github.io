@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О плане BDUI — NAHUI3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light navbar-custom py-3">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">NAHUI3</a>
+            <div class="navbar-nav flex-wrap gap-1">
+                <a class="nav-link" href="../index.html">Главная</a>
+                <a class="nav-link active" href="bdui.html">О плане BDUI</a>
+                <a class="nav-link" href="admin.html">План: Admin</a>
+                <a class="nav-link" href="backend.html">План: Backend</a>
+                <a class="nav-link" href="ios.html">План: iOS</a>
+                <a class="nav-link" href="android.html">План: Android</a>
+                <a class="nav-link" href="web.html">План: Web</a>
+                <a class="nav-link" href="demo.html">План: Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <h1 class="section-title mb-4">План BDUI (Backend-Driven UI)</h1>
+        <p class="lead mb-5">Интерфейсы описываются на бэкенде, доставляются клиентам в виде файлов и манифестов и отображаются нативно на iOS (SwiftUI), Android (Kotlin Compose) и Web (React).</p>
+
+        <div class="plan-block">
+            <h2>Фича и узел</h2>
+            <p><strong>Фича</strong> — небольшой проект со своим манифестом и набором файлов-узлов (обычно фича = экран). Корневая фича описывает набор всех фич.</p>
+            <p><strong>Узел (файл в фиче):</strong> <code>id</code> (UUID от пути), <code>name</code> (имя файла), <code>hash</code> (content-hash). Иерархия задаётся манифестом.</p>
+        </div>
+
+        <div class="plan-block">
+            <h2>Манифест</h2>
+            <p>Дерево папок и файлов фичи с id, именем, хешем для каждого узла. Формат: XML, JSON, YAML или другой. Манифест на всё приложение для платформы включает версию приложения.</p>
+        </div>
+
+        <div class="plan-block">
+            <h2>Дельта</h2>
+            <p>Строится <strong>сервером</strong> при сравнении версии клиента и версии, опубликованной через админку. Хранится только в кешах сервера; клиент получает готовую дельту по запросу.</p>
+        </div>
+
+        <div class="plan-block">
+            <h2>Потоки</h2>
+            <ol>
+                <li><strong>Холодный старт:</strong> клиент передаёт версию и id фичи → сервер достаёт манифесты двух версий, сравнивает, строит дельту, помещает в кеш и отправляет клиенту дельту вместе с опубликованным манифестом → клиент применяет дельту, кеширует манифест и рендерит.</li>
+                <li><strong>Проверка обновлений:</strong> клиент передаёт версию и id фичи → сервер достаёт из кеша дельту, отдаёт дельту вместе с опубликованным манифестом → клиент применяет дельту, кеширует манифест и рендерит.</li>
+                <li><strong>Админка и CI/CD:</strong> воркер анализирует ветку проекта, строит дерево хешей и манифесты, версионирует их; в админке выбирают версию для наката по платформам.</li>
+            </ol>
+        </div>
+
+        <div class="mb-4">
+            <a href="../index.html" class="btn btn-outline-primary">← На главную</a>
+            <a href="admin.html" class="btn btn-primary">План: Admin →</a>
+        </div>
+    </main>
+
+    <footer class="footer-custom py-4">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2026 NAHUI3</p>
+            <p class="mb-0"><a href="https://github.com/orgs/nahui3" target="_blank">GitHub Organization</a></p>
+        </div>
+    </footer>
+</body>
+</html>

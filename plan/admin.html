@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>План: Admin — NAHUI3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light navbar-custom py-3">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">NAHUI3</a>
+            <div class="navbar-nav flex-wrap gap-1">
+                <a class="nav-link" href="../index.html">Главная</a>
+                <a class="nav-link" href="bdui.html">О плане BDUI</a>
+                <a class="nav-link active" href="admin.html">План: Admin</a>
+                <a class="nav-link" href="backend.html">План: Backend</a>
+                <a class="nav-link" href="ios.html">План: iOS</a>
+                <a class="nav-link" href="android.html">План: Android</a>
+                <a class="nav-link" href="web.html">План: Web</a>
+                <a class="nav-link" href="demo.html">План: Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <h1 class="section-title">План: Admin</h1>
+        <p class="lead mb-4">Управление BDUI: настройка веток проекта для CI/CD-воркера, просмотр версий по платформам, выбор версии для публикации, фиксация версий у клиентов.</p>
+
+        <div class="plan-block">
+            <h2>Контекст</h2>
+            <ul>
+                <li>На бэкенде в CI/CD работает <strong>воркер</strong>, который периодически (по таймеру или при пуше в ветку) анализирует указанные в настройках админки ветки проекта и на основе входящих файлов строит дерево хешей и манифесты, версионирует их.</li>
+                <li>В админке можно посмотреть любую версию для каждой платформы и указать, какую версию нужно опубликовать и какие версии у клиентов.</li>
+            </ul>
+        </div>
+
+        <div class="plan-block">
+            <h2>Задачи</h2>
+            <ol>
+                <li><strong>Настройки для воркера</strong> — хранение и редактирование настроек: репозитории (или пути к .git), ветки для анализа; связь с backend/воркером.</li>
+                <li><strong>Просмотр версий</strong> — список версий по платформам (ios, android, web), построенных воркером; просмотр содержимого манифеста (корневая фича, дерево папок и файлов с id, именем, хешем).</li>
+                <li><strong>Выбор версии для публикации</strong> — указание опубликованной версии для каждой платформы; сохранение выбора в хранилище, доступном backend.</li>
+                <li><strong>Выбор версий у клиентов</strong> — указание версий, находящихся у клиентов для каждой платформы; только по этим версиям сервер может строить дельту.</li>
+                <li><strong>Интеграция с файлами</strong> — при необходимости оставить текущий поток загрузки файлов (InterfaceFile) для статичных ресурсов; основной поток версионирования — через воркер и манифесты.</li>
+            </ol>
+        </div>
+
+        <div class="plan-result">
+            <strong>Результат:</strong> Админка — точка настройки источника изменений, просмотра версий и выбора версии для публикации и у клиентов по платформам.
+        </div>
+
+        <div class="mt-4">
+            <a href="bdui.html" class="btn btn-outline-primary">← О плане BDUI</a>
+            <a href="backend.html" class="btn btn-primary">План: Backend →</a>
+        </div>
+    </main>
+
+    <footer class="footer-custom py-4">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2026 NAHUI3</p>
+            <p class="mb-0"><a href="https://github.com/orgs/nahui3" target="_blank">GitHub Organization</a></p>
+        </div>
+    </footer>
+</body>
+</html>

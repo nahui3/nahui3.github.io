@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>План: iOS — NAHUI3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light navbar-custom py-3">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">NAHUI3</a>
+            <div class="navbar-nav flex-wrap gap-1">
+                <a class="nav-link" href="../index.html">Главная</a>
+                <a class="nav-link" href="bdui.html">О плане BDUI</a>
+                <a class="nav-link" href="admin.html">План: Admin</a>
+                <a class="nav-link" href="backend.html">План: Backend</a>
+                <a class="nav-link active" href="ios.html">План: iOS</a>
+                <a class="nav-link" href="android.html">План: Android</a>
+                <a class="nav-link" href="web.html">План: Web</a>
+                <a class="nav-link" href="demo.html">План: Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <h1 class="section-title">План: iOS</h1>
+        <p class="lead mb-4">SwiftUI SPM-пакет <strong>nahui3</strong>: загрузка фичи, передача версии, применение дельты, рендер по манифесту и файлам.</p>
+
+        <div class="plan-block">
+            <h2>Контекст</h2>
+            <ul>
+                <li>Фича описывается манифестом (дерево папок и файлов с id, name, hash). Узел: <strong>id</strong>, <strong>name</strong>, <strong>hash</strong>. Иерархия задаётся манифестом.</li>
+                <li>Клиент передаёт версию и идентификатор фичи; сервер отдаёт <strong>дельту вместе с опубликованным манифестом</strong> (либо «изменений не было»).</li>
+            </ul>
+        </div>
+
+        <div class="plan-block">
+            <h2>Задачи</h2>
+            <ol>
+                <li><strong>Модели данных</strong> — манифест и узел: id (UUID), name, hash; дерево папок и файлов. Модель дельты от сервера.</li>
+                <li><strong>Сеть и кеш</strong> — запрос фичи (платформа, id фичи, версия); разбор ответа: дельта + опубликованный манифест; локальный кеш манифеста и состояния фичи.</li>
+                <li><strong>Применение дельты</strong> — применение дельты к предыдущему состоянию, кеширование манифеста; обновление локального дерева; перерисовка UI по манифесту и файлам.</li>
+                <li><strong>Рендер по манифесту и файлам</strong> — интерпретация манифеста и содержимого файлов фичи для построения SwiftUI-вью.</li>
+                <li><strong>Документация и тесты</strong> — README, примеры в demo; юнит-тесты парсинга манифеста и применения дельты.</li>
+            </ol>
+        </div>
+
+        <div class="plan-result">
+            <strong>Результат:</strong> iOS-приложение (demo) подключает SPM-пакет nahui3, передаёт версию и id фичи, получает дельту и опубликованный манифест, применяет дельту, кеширует манифест и рендерит.
+        </div>
+
+        <div class="mt-4">
+            <a href="backend.html" class="btn btn-outline-primary">← План: Backend</a>
+            <a href="android.html" class="btn btn-primary">План: Android →</a>
+        </div>
+    </main>
+
+    <footer class="footer-custom py-4">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2026 NAHUI3</p>
+            <p class="mb-0"><a href="https://github.com/orgs/nahui3" target="_blank">GitHub Organization</a></p>
+        </div>
+    </footer>
+</body>
+</html>

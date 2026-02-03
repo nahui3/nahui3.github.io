@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>План: Demo — NAHUI3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light navbar-custom py-3">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">NAHUI3</a>
+            <div class="navbar-nav flex-wrap gap-1">
+                <a class="nav-link" href="../index.html">Главная</a>
+                <a class="nav-link" href="bdui.html">О плане BDUI</a>
+                <a class="nav-link" href="admin.html">План: Admin</a>
+                <a class="nav-link" href="backend.html">План: Backend</a>
+                <a class="nav-link" href="ios.html">План: iOS</a>
+                <a class="nav-link" href="android.html">План: Android</a>
+                <a class="nav-link" href="web.html">План: Web</a>
+                <a class="nav-link active" href="demo.html">План: Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <h1 class="section-title">План: Demo</h1>
+        <p class="lead mb-4">Демонстрация полного цикла BDUI: загрузка фичи с backend, отображение на каждой платформе (iOS, Android, Web), проверка обновлений через дельту.</p>
+
+        <div class="plan-block">
+            <h2>Контекст</h2>
+            <ul>
+                <li>Клиент передаёт версию и идентификатор фичи; сервер достаёт манифесты двух версий (переданной и опубликованной), сравнивает, строит или достаёт из кеша дельту и отправляет клиенту <strong>дельту вместе с опубликованным манифестом</strong> (либо «изменений не было»). Клиент применяет дельту, кеширует манифест и рендерит.</li>
+                <li>Библиотеки: iOS — SwiftUI SPM-пакет nahui3, Android — Kotlin Compose библиотека nahui3, Web — React-компонент nahui3.</li>
+            </ul>
+        </div>
+
+        <div class="plan-block">
+            <h2>Задачи</h2>
+            <ol>
+                <li><strong>demo/android</strong> — URL backend; одна тестовая фича (id) по умолчанию. Подключить библиотеку nahui3; экран загрузки фичи по id, передача версии; получение дельты и опубликованного манифеста; применение дельты, кеширование манифеста, рендер; опционально pull-to-refresh.</li>
+                <li><strong>demo/ios</strong> — URL backend; одна тестовая фича (id) по умолчанию. Подключить SPM-пакет nahui3; экран загрузки фичи по id, передача версии; получение дельты и опубликованного манифеста; применение дельты, кеширование манифеста, рендер; опционально pull-to-refresh.</li>
+                <li><strong>demo/web</strong> — URL backend; одна тестовая фича (id) по умолчанию. Страница с фичей и компонентом nahui3; загрузка через хук nahui3, передача версии и id фичи; получение дельты и манифеста; применение дельты, кеширование манифеста, рендер; кнопка «Проверить обновления».</li>
+                <li><strong>Тестовые данные</strong> — в админке заданы ветки проектов; воркер строит манифесты; выбрана опубликованная версия. Убедиться, что backend отдаёт дельту вместе с опубликованным манифестом, все три демо корректно применяют дельту, кешируют манифест и рендерят после смены опубликованной версии в админке.</li>
+            </ol>
+        </div>
+
+        <div class="plan-result">
+            <strong>Результат:</strong> Одна и та же фича, описанная манифестом и файлами в проекте, отображается в demo на iOS, Android и Web и обновляется по дельте при смене опубликованной версии.
+        </div>
+
+        <div class="mt-4">
+            <a href="web.html" class="btn btn-outline-primary">← План: Web</a>
+            <a href="../index.html" class="btn btn-primary">На главную →</a>
+        </div>
+    </main>
+
+    <footer class="footer-custom py-4">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2026 NAHUI3</p>
+            <p class="mb-0"><a href="https://github.com/orgs/nahui3" target="_blank">GitHub Organization</a></p>
+        </div>
+    </footer>
+</body>
+</html>
