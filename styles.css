@@ -1,54 +1,164 @@
-/* NAHUI3 — пастельная тема поверх Bootstrap (только HTML/CSS, без JS) */
+/* NAHUI3 — темы light (светлая пастель) и dark (тёмная), без JS */
 
+/* ——— Светлая тема (по умолчанию и при prefers-color-scheme: light) ——— */
 :root {
-    --pastel-bg: #faf8f6;
-    --pastel-surface: #ffffff;
-    --pastel-border: #e8e2dc;
-    --pastel-primary: #9cb4d4;
-    --pastel-primary-dark: #7a9bc4;
-    --pastel-secondary: #c4b5a8;
-    --pastel-accent: #b8d4c8;
-    --pastel-accent-soft: #e2ebe8;
-    --pastel-lavender: #d4c8e8;
-    --pastel-text: #4a4540;
-    --pastel-text-muted: #7a7570;
-    --pastel-shadow: 0 2px 12px rgba(76, 69, 64, 0.06);
-    --pastel-shadow-hover: 0 6px 20px rgba(76, 69, 64, 0.08);
+    --pastel-bg: #f5f0eb;
+    --pastel-surface: #fffefc;
+    --pastel-border: #e0d9d0;
+    --pastel-primary: #8ba8c4;
+    --pastel-primary-dark: #6b8ba8;
+    --pastel-secondary: #b8a898;
+    --pastel-accent: #a8c4b8;
+    --pastel-accent-soft: #d8e8e2;
+    --pastel-lavender: #c8b8e0;
+    --pastel-text: #3d3834;
+    --pastel-text-muted: #6b6560;
+    --pastel-shadow: 0 2px 12px rgba(61, 56, 52, 0.06);
+    --pastel-shadow-hover: 0 6px 20px rgba(61, 56, 52, 0.08);
+}
+
+/* ——— Тёмная тема: по системной настройке ——— */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --pastel-bg: #1a1d24;
+        --pastel-surface: #252830;
+        --pastel-border: #3a3f4a;
+        --pastel-primary: #6b8ba8;
+        --pastel-primary-dark: #8ba8c4;
+        --pastel-secondary: #7a6f65;
+        --pastel-accent: #5a8a7a;
+        --pastel-accent-soft: #2d3a36;
+        --pastel-lavender: #6a5a8a;
+        --pastel-text: #e4e2de;
+        --pastel-text-muted: #a8a49e;
+        --pastel-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+        --pastel-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+}
+
+/* ——— Переключатель без JS: при переходе по #light / #dark ——— */
+:root:has(#light:target) {
+    color-scheme: light;
+    --pastel-bg: #f5f0eb;
+    --pastel-surface: #fffefc;
+    --pastel-border: #e0d9d0;
+    --pastel-primary: #8ba8c4;
+    --pastel-primary-dark: #6b8ba8;
+    --pastel-secondary: #b8a898;
+    --pastel-accent: #a8c4b8;
+    --pastel-accent-soft: #d8e8e2;
+    --pastel-lavender: #c8b8e0;
+    --pastel-text: #3d3834;
+    --pastel-text-muted: #6b6560;
+    --pastel-shadow: 0 2px 12px rgba(61, 56, 52, 0.06);
+    --pastel-shadow-hover: 0 6px 20px rgba(61, 56, 52, 0.08);
+}
+
+:root:has(#dark:target) {
+    color-scheme: dark;
+    --pastel-bg: #1a1d24;
+    --pastel-surface: #252830;
+    --pastel-border: #3a3f4a;
+    --pastel-primary: #6b8ba8;
+    --pastel-primary-dark: #8ba8c4;
+    --pastel-secondary: #7a6f65;
+    --pastel-accent: #5a8a7a;
+    --pastel-accent-soft: #2d3a36;
+    --pastel-lavender: #6a5a8a;
+    --pastel-text: #e4e2de;
+    --pastel-text-muted: #a8a49e;
+    --pastel-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    --pastel-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Якоря для переключения темы (скрыты) */
+.theme-anchor {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+/* Переключатель темы в навбаре */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--pastel-border);
+}
+
+.theme-toggle a {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    color: var(--pastel-text-muted);
+    background: transparent;
+}
+
+.theme-toggle a:hover {
+    color: var(--pastel-primary-dark);
+    background: var(--pastel-accent-soft);
+}
+
+/* Подсветка выбранной темы при #light / #dark в URL (без JS) */
+:root:has(#light:target) .theme-toggle a[href$="#light"],
+:root:has(#dark:target) .theme-toggle a[href$="#dark"] {
+    color: var(--pastel-primary-dark);
+    font-weight: 600;
+}
+
+/* ——— Базовые стили (общие для обеих тем) ——— */
+html {
+    background-color: var(--pastel-bg);
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+    html { color-scheme: dark; }
 }
 
 body {
-    background-color: var(--pastel-bg) !important;
-    color: var(--pastel-text) !important;
+    background-color: var(--pastel-bg);
+    color: var(--pastel-text);
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-/* Навбар — статичное меню без JS */
+main {
+    background-color: var(--pastel-bg);
+}
+
+/* Навбар */
 .navbar-custom {
-    background-color: var(--pastel-surface) !important;
+    background-color: var(--pastel-surface);
     border-bottom: 1px solid var(--pastel-border);
     box-shadow: var(--pastel-shadow);
 }
 
 .navbar-custom .navbar-brand {
-    color: var(--pastel-primary-dark) !important;
+    color: var(--pastel-primary-dark);
     font-weight: 700;
     font-size: 1.35rem;
 }
 
 .navbar-custom .nav-link {
-    color: var(--pastel-text) !important;
+    color: var(--pastel-text);
     border-radius: 0.375rem;
-    padding: 0.5rem 0.75rem !important;
+    padding: 0.5rem 0.75rem;
 }
 
 .navbar-custom .nav-link:hover {
     background-color: var(--pastel-accent-soft);
-    color: var(--pastel-primary-dark) !important;
+    color: var(--pastel-primary-dark);
 }
 
 .navbar-custom .nav-link.active {
     background-color: var(--pastel-primary);
-    color: var(--pastel-surface) !important;
+    color: var(--pastel-surface);
 }
 
 /* Карточки */
@@ -75,15 +185,15 @@ body {
 
 /* Кнопки */
 .btn-primary {
-    background-color: var(--pastel-primary) !important;
-    border-color: var(--pastel-primary) !important;
-    color: var(--pastel-surface) !important;
+    background-color: var(--pastel-primary);
+    border-color: var(--pastel-primary);
+    color: var(--pastel-surface);
 }
 
 .btn-primary:hover {
-    background-color: var(--pastel-primary-dark) !important;
-    border-color: var(--pastel-primary-dark) !important;
-    color: var(--pastel-surface) !important;
+    background-color: var(--pastel-primary-dark);
+    border-color: var(--pastel-primary-dark);
+    color: var(--pastel-surface);
 }
 
 .btn-outline-primary {
@@ -103,7 +213,11 @@ body {
 }
 
 .bg-primary {
-    background-color: var(--pastel-primary) !important;
+    background-color: var(--pastel-primary);
+}
+
+.bg-secondary {
+    background-color: var(--pastel-secondary);
 }
 
 /* Секции */
@@ -129,7 +243,7 @@ body {
     color: var(--pastel-primary-dark);
 }
 
-/* План-страницы: блоки контента */
+/* План-страницы: блоки контента (универсальные) */
 .plan-block {
     background-color: var(--pastel-surface);
     border: 1px solid var(--pastel-border);
@@ -161,6 +275,7 @@ body {
     border-left: 4px solid var(--pastel-accent);
     padding: 1rem 1.25rem;
     border-radius: 0 0.5rem 0.5rem 0;
+    color: var(--pastel-text);
 }
 
 /* Архитектура на главной */
@@ -184,18 +299,16 @@ body {
     align-self: center;
 }
 
-/* Ссылки на карточках репозиториев */
 .repo-card .card-body a {
     text-decoration: none;
 }
 
-/* Утилиты Bootstrap под пастель */
 .text-muted {
-    color: var(--pastel-text-muted) !important;
+    color: var(--pastel-text-muted);
 }
 
 .bg-light {
-    background-color: var(--pastel-accent-soft) !important;
+    background-color: var(--pastel-accent-soft);
 }
 
 code {
@@ -206,12 +319,127 @@ code {
     font-size: 0.9em;
 }
 
-/* Адаптив: меню в колонку на узких экранах */
+/* Быстрый старт: одинаковая высота блоков */
+.quick-start .card {
+    height: 100%;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-start .card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.quick-start .card .card-text {
+    flex: 1;
+}
+
+/* ——— Страницы планов: секции с иконкой и карточки-буллеты ——— */
+.plan-section {
+    background: linear-gradient(135deg, var(--pastel-surface) 0%, var(--pastel-accent-soft) 100%);
+    border: 1px solid var(--pastel-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--pastel-shadow);
+}
+
+.plan-section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.plan-section-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+    background: var(--pastel-primary);
+    color: var(--pastel-surface);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+}
+
+.plan-section-header h2 {
+    color: var(--pastel-primary-dark);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.plan-section-body p {
+    color: var(--pastel-text);
+    margin-bottom: 1rem;
+}
+
+.plan-section-body p:last-child {
+    margin-bottom: 0;
+}
+
+.plan-bullet-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.plan-bullet-card {
+    background: var(--pastel-surface);
+    border: 1px solid var(--pastel-border);
+    border-radius: 0.625rem;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    color: var(--pastel-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.plan-bullet-card strong {
+    color: var(--pastel-primary-dark);
+}
+
+.plan-bullet-card .bullet-num {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    background: var(--pastel-primary);
+    color: var(--pastel-surface);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.plan-block p {
+    color: var(--pastel-text);
+}
+
+.plan-block ol.plan-bullet-cards {
+    list-style: none;
+    padding-left: 0;
+}
+
 @media (max-width: 768px) {
     .navbar-custom .navbar-nav {
         margin-top: 0.5rem;
     }
     .navbar-custom .nav-link {
         display: block;
+    }
+    .theme-toggle {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        width: 100%;
+        margin-top: 0.5rem;
     }
 }

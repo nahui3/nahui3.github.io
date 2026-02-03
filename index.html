@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <span id="light" tabindex="-1" aria-hidden="true" class="theme-anchor"></span>
+    <span id="dark" tabindex="-1" aria-hidden="true" class="theme-anchor"></span>
+
     <nav class="navbar navbar-expand-md navbar-light navbar-custom py-3">
         <div class="container">
             <a class="navbar-brand" href="index.html">NAHUI3</a>
-            <div class="navbar-nav flex-wrap gap-1">
+            <div class="navbar-nav flex-wrap gap-1 align-items-center">
                 <a class="nav-link active" href="index.html">Главная</a>
                 <a class="nav-link" href="plan/bdui.html">О плане BDUI</a>
                 <a class="nav-link" href="plan/admin.html">План: Admin</a>
@@ -20,6 +23,10 @@
                 <a class="nav-link" href="plan/android.html">План: Android</a>
                 <a class="nav-link" href="plan/web.html">План: Web</a>
                 <a class="nav-link" href="plan/demo.html">План: Demo</a>
+                <span class="theme-toggle">
+                    <a href="index.html#light">Светлая</a>
+                    <a href="index.html#dark">Тёмная</a>
+                </span>
             </div>
         </div>
     </nav>
@@ -171,33 +178,33 @@
             </div>
         </section>
 
-        <section class="mb-5">
+        <section class="mb-5 quick-start">
             <h2 class="section-title text-center mb-4">Быстрый старт</h2>
-            <div class="row g-3">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body text-center">
+            <div class="row g-3 align-items-stretch">
+                <div class="col-md-4 d-flex">
+                    <div class="card w-100">
+                        <div class="card-body text-center d-flex flex-column">
                             <span class="badge bg-primary rounded-circle p-2 mb-2">1</span>
                             <h3 class="card-title h6">Клонируйте backend</h3>
-                            <code class="d-block small text-start p-2 bg-light rounded">git clone https://github.com/nahui3/backend.git</code>
+                            <code class="d-block small text-start p-2 bg-light rounded mt-auto">git clone https://github.com/nahui3/backend.git</code>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body text-center">
+                <div class="col-md-4 d-flex">
+                    <div class="card w-100">
+                        <div class="card-body text-center d-flex flex-column">
                             <span class="badge bg-primary rounded-circle p-2 mb-2">2</span>
                             <h3 class="card-title h6">Запустите Docker Compose</h3>
-                            <code class="d-block small text-start p-2 bg-light rounded">docker compose up -d</code>
+                            <code class="d-block small text-start p-2 bg-light rounded mt-auto">docker compose up -d</code>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body text-center">
+                <div class="col-md-4 d-flex">
+                    <div class="card w-100">
+                        <div class="card-body text-center d-flex flex-column">
                             <span class="badge bg-primary rounded-circle p-2 mb-2">3</span>
                             <h3 class="card-title h6">Подключите библиотеку</h3>
-                            <p class="card-text small mb-0">Выберите nahui3 для iOS, Android или Web и откройте соответствующий план.</p>
+                            <p class="card-text small mb-0 mt-auto">Выберите nahui3 для iOS, Android или Web и откройте соответствующий план.</p>
                         </div>
                     </div>
                 </div>
